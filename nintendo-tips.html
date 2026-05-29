@@ -1,0 +1,2166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nintendo Tips & Tricks</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --smash: #D40000;
+    --mario: #E8372A;
+    --ac: #7EC850;
+    --dark: #1a1a2e;
+    --card-bg: #ffffff;
+    --page-bg: #f0f4ff;
+    --text: #1a1a2e;
+    --muted: #555;
+    --shadow: 0 4px 0px rgba(0,0,0,0.18);
+    --sub-smash-bg: #fde; --sub-smash-text: #D40000;
+    --sub-mario-bg: #fee; --sub-mario-text: #c0200f;
+    --sub-ac-bg: #eafce0; --sub-ac-text: #3a8b10;
+    --sub-kart-bg: #fff3cc; --sub-kart-text: #7a4f00;
+    --sub-kartw-bg: #e8f0ff; --sub-kartw-text: #1a3a8a;
+    --sub-zelda-bg: #fffbe6; --sub-zelda-text: #6b5000;
+    --sub-kirby-bg: #ffe8f4; --sub-kirby-text: #8a1a5a;
+    --sub-odyssey-bg: #e8f8ff; --sub-odyssey-text: #004a7a;
+    --sub-wonder-bg: #f3e8ff; --sub-wonder-text: #5a0090;
+    --tag-smash-bg: #fde;
+    --tag-mario-bg: #fee; --tag-mario-text: #c0200f;
+    --tag-ac-bg: #eafce0; --tag-ac-text: #3a8b10;
+    --tag-kart-bg: #fff3cc; --tag-kart-text: #7a4f00;
+    --tag-kartw-bg: #e8f0ff; --tag-kartw-text: #1a3a8a;
+    --tag-zelda-bg: #fffbe6; --tag-zelda-text: #6b5000;
+    --tag-kirby-bg: #ffe8f4; --tag-kirby-text: #8a1a5a;
+    --tag-odyssey-bg: #e8f8ff; --tag-odyssey-text: #004a7a;
+    --tag-wonder-bg: #f3e8ff; --tag-wonder-text: #5a0090;
+    --tag-basic-bg: #e8eef8; --tag-basic-text: #2255aa;
+    --tag-adv-bg: #fff0d0;  --tag-adv-text: #8a5700;
+    --tag-exp-bg: #fde8e8;  --tag-exp-text: #aa2222;
+    --tag-misc-bg: #ececec; --tag-misc-text: #444;
+  }
+
+  body.dark-mode {
+    --card-bg: #1e1e2e;
+    --page-bg: #12121c;
+    --text: #e8e4f0;
+    --muted: #aaa;
+    --shadow: 0 4px 0px rgba(0,0,0,0.45);
+    --sub-smash-bg: #3a0a0a; --sub-smash-text: #ff6b6b;
+    --sub-mario-bg: #3a1a0a; --sub-mario-text: #ff8c6b;
+    --sub-ac-bg: #0a2a0a;   --sub-ac-text: #7EC850;
+    --sub-kart-bg: #2a1e00; --sub-kart-text: #ffc86b;
+    --sub-kartw-bg: #0a1a3a; --sub-kartw-text: #7ab4ff;
+    --sub-zelda-bg: #2a2000; --sub-zelda-text: #ffd966;
+    --sub-kirby-bg: #2a0a1e; --sub-kirby-text: #ff8fd4;
+    --sub-odyssey-bg: #001e3a; --sub-odyssey-text: #7acfff;
+    --sub-wonder-bg: #1e0a3a; --sub-wonder-text: #c880ff;
+    --tag-smash-bg: #3a0a0a;
+    --tag-mario-bg: #3a1a0a; --tag-mario-text: #ff8c6b;
+    --tag-ac-bg: #0a2a0a;    --tag-ac-text: #7EC850;
+    --tag-kart-bg: #2a1e00;  --tag-kart-text: #ffc86b;
+    --tag-kartw-bg: #0a1a3a; --tag-kartw-text: #7ab4ff;
+    --tag-zelda-bg: #2a2000; --tag-zelda-text: #ffd966;
+    --tag-kirby-bg: #2a0a1e; --tag-kirby-text: #ff8fd4;
+    --tag-odyssey-bg: #001e3a; --tag-odyssey-text: #7acfff;
+    --tag-wonder-bg: #1e0a3a; --tag-wonder-text: #c880ff;
+    --tag-basic-bg: #0d1f3a; --tag-basic-text: #6ea8fe;
+    --tag-adv-bg: #2a1e00;   --tag-adv-text: #ffc86b;
+    --tag-exp-bg: #2a0a0a;   --tag-exp-text: #ff8080;
+    --tag-misc-bg: #2a2a2a;  --tag-misc-text: #ccc;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--page-bg);
+    color: var(--text);
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  header {
+    background: var(--dark);
+    padding: 2.5rem 1rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 40px);
+  }
+  header h1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(1rem, 3vw, 1.6rem);
+    color: #fff;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+  }
+  header h1 span { color: #FFD700; }
+  header p {
+    color: #aab;
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    position: relative; z-index: 1;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1rem;
+    background: var(--dark);
+    border-top: 2px solid rgba(255,255,255,0.08);
+    flex-wrap: wrap;
+  }
+  nav button {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    padding: 0.65rem 1.1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow);
+  }
+  nav button:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.18); }
+  nav button.smash-btn  { background: var(--smash); color: #fff; }
+  nav button.mario-btn  { background: var(--mario); color: #fff; }
+  nav button.ac-btn     { background: var(--ac);    color: #1a3a00; }
+  nav button.kart-btn   { background: #f5a800;      color: #3a2000; }
+  nav button.kartw-btn  { background: #3a7bd5;      color: #fff; }
+  nav button.zelda-btn  { background: #c9a800;      color: #2a1e00; }
+  nav button.kirby-btn  { background: #ff6eb4;      color: #4a0028; }
+  nav button.odyssey-btn { background: #e84040;     color: #fff; }
+  nav button.wonder-btn  { background: #9b30d0;     color: #fff; }
+  nav button.active     { outline: 3px solid #FFD700; outline-offset: 2px; }
+
+  /* Console filter bar */
+  .console-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    background: #111128;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    flex-wrap: wrap;
+  }
+  .console-bar span {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.45rem;
+    color: #556;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .console-btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 0.4px;
+    box-shadow: var(--shadow);
+    transition: transform 0.1s, opacity 0.2s, outline 0.1s;
+    border: none;
+  }
+  .console-btn:active { transform: translateY(2px); }
+  .ns-btn  { background: #e4001c; color: #fff; }
+  .ns2-btn { background: #0057a8; color: #fff; }
+  .console-btn.con-active { outline: 3px solid #FFD700; outline-offset: 2px; }
+  .console-btn.con-inactive { opacity: 0.35; }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1rem 4rem; }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .section-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .section-header .icon {
+    font-size: 2.2rem; line-height: 1;
+  }
+  .section-header h2 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    line-height: 1.6;
+  }
+  .section-header .badge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-left: auto;
+  }
+  .smash-color  { color: var(--smash); }
+  .mario-color  { color: var(--mario); }
+  .ac-color     { color: var(--ac); }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .tip-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.25rem 1.25rem 1.1rem;
+    box-shadow: var(--shadow);
+    border-top: 5px solid transparent;
+    transition: transform 0.18s;
+    position: relative;
+  }
+  .tip-card:hover { transform: translateY(-3px); }
+
+  .smash-card  { border-top-color: var(--smash); }
+  .mario-card  { border-top-color: var(--mario); }
+  .ac-card     { border-top-color: var(--ac); }
+  .kart-card   { border-top-color: #f5a800; }
+  .kartw-card  { border-top-color: #3a7bd5; }
+  .zelda-card  { border-top-color: #c9a800; }
+  .kirby-card  { border-top-color: #ff6eb4; }
+  .odyssey-card { border-top-color: #e84040; }
+  .wonder-card  { border-top-color: #9b30d0; }
+
+  .tip-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 0.7rem;
+  }
+  .tag-smash    { background: var(--tag-smash-bg); color: var(--smash); }
+  .tag-mario    { background: var(--tag-mario-bg); color: var(--tag-mario-text); }
+  .tag-ac       { background: var(--tag-ac-bg);    color: var(--tag-ac-text); }
+  .tag-kart     { background: var(--tag-kart-bg);  color: var(--tag-kart-text); }
+  .tag-kartw    { background: var(--tag-kartw-bg); color: var(--tag-kartw-text); }
+  .tag-zelda    { background: var(--tag-zelda-bg); color: var(--tag-zelda-text); }
+  .tag-kirby    { background: var(--tag-kirby-bg); color: var(--tag-kirby-text); }
+  .tag-odyssey  { background: var(--tag-odyssey-bg); color: var(--tag-odyssey-text); }
+  .tag-wonder   { background: var(--tag-wonder-bg);  color: var(--tag-wonder-text); }
+  .tag-basic    { background: var(--tag-basic-bg); color: var(--tag-basic-text); }
+  .tag-advanced { background: var(--tag-adv-bg);   color: var(--tag-adv-text); }
+  .tag-expert   { background: var(--tag-exp-bg);   color: var(--tag-exp-text); }
+  .tag-misc     { background: var(--tag-misc-bg);  color: var(--tag-misc-text); }
+
+  .tip-card h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 0.45rem;
+    line-height: 1.4;
+  }
+  .tip-card p {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .tip-card .stars {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: #FFD700;
+  }
+
+  /* Tutorial link on cards */
+  .tip-card .tutorial-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: #fff;
+    background: #FF0000;
+    padding: 4px 10px;
+    border-radius: 5px;
+    letter-spacing: 0.3px;
+    transition: opacity 0.15s, transform 0.1s;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.2);
+  }
+  .tip-card .tutorial-link:hover { opacity: 0.85; }
+  .tip-card .tutorial-link:active { transform: scale(0.97); }
+
+  /* Buy Now button in section headers */
+  .buy-now-btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.48rem;
+    padding: 0.5rem 0.9rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #FF0000;
+    color: #fff;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.25);
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 0.3px;
+    transition: opacity 0.15s, transform 0.1s;
+    margin-left: 0.75rem;
+    white-space: nowrap;
+  }
+  .buy-now-btn:hover { opacity: 0.85; }
+  .buy-now-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 rgba(0,0,0,0.25); }
+
+  /* Game backstory block */
+  .game-backstory {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.75rem;
+    box-shadow: var(--shadow);
+    border-left: 5px solid transparent;
+    transition: background 0.3s;
+  }
+  .game-backstory h4 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.3px;
+    opacity: 0.75;
+  }
+  .game-backstory p {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+  .backstory-smash  { border-left-color: var(--smash); }
+  .backstory-mario  { border-left-color: var(--mario); }
+  .backstory-ac     { border-left-color: var(--ac); }
+  .backstory-kart   { border-left-color: #f5a800; }
+  .backstory-kartw  { border-left-color: #3a7bd5; }
+  .backstory-zelda  { border-left-color: #c9a800; }
+  .backstory-kirby  { border-left-color: #ff6eb4; }
+  .backstory-odyssey { border-left-color: #e84040; }
+  .backstory-wonder { border-left-color: #9b30d0; }
+
+  /* Scroll hint */
+  #scroll-hint {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.45rem;
+    background: rgba(26,26,46,0.92);
+    color: #FFD700;
+    padding: 0.55rem 1.1rem;
+    border-radius: 20px;
+    border: 2px solid rgba(255,255,255,0.15);
+    letter-spacing: 0.3px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: 9999;
+    white-space: nowrap;
+  }
+  #scroll-hint.visible { opacity: 1; }
+
+  .subsection-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    margin: 2rem 0 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    display: inline-block;
+    letter-spacing: 0.3px;
+  }
+  .sub-smash { background: var(--sub-smash-bg); color: var(--sub-smash-text); }
+  .sub-mario { background: var(--sub-mario-bg); color: var(--sub-mario-text); }
+  .sub-ac    { background: var(--sub-ac-bg);    color: var(--sub-ac-text); }
+  .sub-kart  { background: var(--sub-kart-bg);  color: var(--sub-kart-text); }
+  .sub-kartw { background: var(--sub-kartw-bg); color: var(--sub-kartw-text); }
+  .sub-zelda { background: var(--sub-zelda-bg); color: var(--sub-zelda-text); }
+  .sub-kirby { background: var(--sub-kirby-bg); color: var(--sub-kirby-text); }
+  .sub-odyssey { background: var(--sub-odyssey-bg); color: var(--sub-odyssey-text); }
+  .sub-wonder  { background: var(--sub-wonder-bg);  color: var(--sub-wonder-text); }
+  .kart-color  { color: #c07800; }
+  .kartw-color { color: #3a7bd5; }
+  .zelda-color { color: #8a6e00; }
+  .kirby-color { color: #c03080; }
+  .odyssey-color { color: #c02020; }
+  .wonder-color  { color: #7a20b0; }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--dark);
+    color: #778;
+    font-size: 0.82rem;
+  }
+  footer span { color: #FFD700; }
+
+  /* Dark mode toggle */
+  #dm-toggle {
+    position: fixed;
+    top: 1rem; right: 1rem;
+    z-index: 999;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    padding: 0.55rem 0.8rem;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    background: rgba(26,26,46,0.85);
+    color: #FFD700;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    transition: transform 0.1s, background 0.3s;
+    letter-spacing: 0.3px;
+  }
+  #dm-toggle:hover { background: rgba(26,26,46,1); }
+  #dm-toggle:active { transform: scale(0.95); }
+  body.dark-mode #dm-toggle {
+    background: rgba(50,50,80,0.9);
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  /* Language bar */
+  .lang-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1rem;
+    background: #0d0d20;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    flex-wrap: wrap;
+  }
+  .lang-bar label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.42rem;
+    color: #556;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  #lang-select {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    border: 2px solid rgba(255,255,255,0.15);
+    background: #1a1a2e;
+    color: #FFD700;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  #lang-select:hover { border-color: rgba(255,255,255,0.35); }
+  #lang-select option { background: #1a1a2e; color: #fff; }
+
+  #lang-select {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    border: 2px solid rgba(255,255,255,0.15);
+    background: #1a1a2e;
+    color: #FFD700;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  #lang-select:hover { border-color: rgba(255,255,255,0.35); }
+  #lang-select option { background: #1a1a2e; color: #fff; }
+
+  @media (max-width: 600px) {
+    .tips-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<button id="dm-toggle" onclick="toggleDark()" title="Toggle dark mode">🌙 DARK</button>
+<div id="scroll-hint">👇 SCROLL DOWN FOR MORE</div>
+
+<header>
+  <h1>🎮 <span>Nintendo</span> Tips & Tricks</h1>
+  <p>Smash Bros · Mario World · Animal Crossing · Mario Kart · Kart World · Zelda · Kirby · Odyssey · Wonder</p>
+</header>
+
+<nav>
+  <button class="smash-btn active" onclick="show('smash',this)">⚔️ Smash Bros</button>
+  <button class="mario-btn" onclick="show('mario',this)">🍄 Mario World</button>
+  <button class="ac-btn" onclick="show('ac',this)">🌿 Animal Crossing</button>
+  <button class="kart-btn" onclick="show('kart',this)">🏎️ Mario Kart</button>
+  <button class="kartw-btn" onclick="show('kartw',this)">🌍 Kart World</button>
+  <button class="zelda-btn" onclick="show('zelda',this)">🗡️ Zelda</button>
+  <button class="kirby-btn" onclick="show('kirby',this)">🌸 Kirby</button>
+  <button class="odyssey-btn" onclick="show('odyssey',this)">🎩 Odyssey</button>
+  <button class="wonder-btn" onclick="show('wonder',this)">✨ Mario Wonder</button>
+</nav>
+
+<div class="console-bar">
+  <span>Console:</span>
+  <button class="console-btn ns-btn con-active" onclick="setConsole('ns', this)">🔴 Nintendo Switch</button>
+  <button class="console-btn ns2-btn" onclick="setConsole('ns2', this)">🔵 Nintendo Switch 2</button>
+</div>
+
+<div class="lang-bar">
+  <label for="lang-select">🌐 LANGUAGE:</label>
+  <select id="lang-select" onchange="setLanguage(this.value)">
+    <option value="en">🇬🇧 English</option>
+    <option value="ar">🇸🇦 Arabic (العربية)</option>
+    <option value="zh">🇨🇳 Chinese Simplified (中文)</option>
+    <option value="zh-tw">🇹🇼 Chinese Traditional (繁體中文)</option>
+    <option value="hr">🇭🇷 Croatian (Hrvatski)</option>
+    <option value="cs">🇨🇿 Czech (Čeština)</option>
+    <option value="da">🇩🇰 Danish (Dansk)</option>
+    <option value="nl">🇳🇱 Dutch (Nederlands)</option>
+    <option value="fi">🇫🇮 Finnish (Suomi)</option>
+    <option value="fr">🇫🇷 French (Français)</option>
+    <option value="de">🇩🇪 German (Deutsch)</option>
+    <option value="el">🇬🇷 Greek (Ελληνικά)</option>
+    <option value="he">🇮🇱 Hebrew (עברית)</option>
+    <option value="hi">🇮🇳 Hindi (हिन्दी)</option>
+    <option value="hu">🇭🇺 Hungarian (Magyar)</option>
+    <option value="id">🇮🇩 Indonesian (Bahasa Indonesia)</option>
+    <option value="it">🇮🇹 Italian (Italiano)</option>
+    <option value="ja">🇯🇵 Japanese (日本語)</option>
+    <option value="ko">🇰🇷 Korean (한국어)</option>
+    <option value="ms">🇲🇾 Malay (Bahasa Melayu)</option>
+    <option value="no">🇳🇴 Norwegian (Norsk)</option>
+    <option value="pl">🇵🇱 Polish (Polski)</option>
+    <option value="pt">🇧🇷 Portuguese (Português)</option>
+    <option value="ro">🇷🇴 Romanian (Română)</option>
+    <option value="ru">🇷🇺 Russian (Русский)</option>
+    <option value="sk">🇸🇰 Slovak (Slovenčina)</option>
+    <option value="es">🇪🇸 Spanish (Español)</option>
+    <option value="sv">🇸🇪 Swedish (Svenska)</option>
+    <option value="th">🇹🇭 Thai (ภาษาไทย)</option>
+    <option value="tr">🇹🇷 Turkish (Türkçe)</option>
+    <option value="uk">🇺🇦 Ukrainian (Українська)</option>
+    <option value="vi">🇻🇳 Vietnamese (Tiếng Việt)</option>
+  </select>
+</div>
+
+<main>
+
+<div id="console-banner" style="
+  text-align:center;
+  padding:0.6rem 1rem;
+  font-family:'Press Start 2P',monospace;
+  font-size:0.5rem;
+  letter-spacing:0.08em;
+  background:#e4001c;
+  color:#fff;
+  transition:background 0.3s;
+">🔴 Viewing tips for: Nintendo Switch</div>
+
+<!-- ==================== SMASH BROS ==================== -->
+<section id="smash" class="section active">
+  <div class="section-header">
+    <span class="icon">⚔️</span>
+    <h2 class="smash-color">Super Smash Bros<br>Tips & Tricks</h2>
+    <span class="badge tag-smash">25 Tips</span>
+    <a class="buy-now-btn" 
+       data-ns="https://www.amazon.com/s?k=super+smash+bros+ultimate+nintendo+switch" 
+       data-ns2="https://www.amazon.com/s?k=super+smash+bros+ultimate+nintendo+switch+2"
+       href="https://www.amazon.com/s?k=super+smash+bros+ultimate+nintendo+switch" target="_blank">🛒 BUY NOW</a>
+  </div>
+
+  <div class="game-backstory backstory-smash">
+    <h4>📖 THE STORY</h4>
+    <p>Super Smash Bros. Ultimate (2018) is the fifth mainline entry in Nintendo's beloved crossover fighting series, and the biggest in history with a roster of over 80 playable characters drawn from Nintendo's greatest franchises and beyond. The story mode, World of Light, begins when a mysterious cosmic entity called Galeem destroys nearly every fighter in a blinding flash of light, scattering their spirits across a sprawling adventure map. Only Kirby survives, and it falls to him — and eventually the fighters you rescue — to defeat Galeem, free the spirits of the fallen, and ultimately confront both Galeem and its dark counterpart Dharkon in an epic final battle for the fate of all worlds. The game includes every fighter ever featured in the Smash series, making it both a love letter to Nintendo history and the definitive version of the franchise.</p>
+  </div>
+
+  <div class="subsection-title sub-smash">⭐ Beginner Fundamentals</div>
+  <div class="tips-grid">
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Shield Early, Shield Often</h3>
+      <p>Hold the shield button to protect yourself from almost any attack. Perfect shielding (releasing just before impact) stuns your opponent briefly, giving you a free punish window.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Learn Your Character's Kill Moves</h3>
+      <p>Every character has specific strong attacks (tilt + attack or smash attacks) designed to launch enemies at high percentages. Practice these in Training Mode to know when you can close out a stock.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Jump Before Attacking Off-Stage</h3>
+      <p>When edgeguarding, always jump before throwing out an attack. This preserves your jump so you can recover back to the stage rather than falling to your doom.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Watch the Opponent, Not Yourself</h3>
+      <p>A common beginner mistake is tracking your own character too closely. Keep your eyes on your opponent — their movements and animations telegraph what move they're about to use.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Use the C-Stick for Smash Attacks</h3>
+      <p>Tilt the right analog stick (C-Stick) while grounded to throw out smash attacks instantly without having to charge. This is faster and more consistent than flicking the left stick + A.</p>
+      <div class="stars">★☆☆☆☆</div>
+    </div>
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>DI to Survive Longer</h3>
+      <p>Directional Influence (DI) lets you alter your knockback trajectory by holding the control stick during hitstun. DI toward center stage when hit horizontally to survive at higher percentages.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-smash">🔥 Intermediate Techniques</div>
+  <div class="tips-grid">
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Short Hop Aerials</h3>
+      <p>Tap the jump button very briefly to short hop, then immediately press an aerial attack. This keeps you low to the ground and makes aerial attacks much safer to land against grounded opponents.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Grab After Shielding</h3>
+      <p>When your shield blocks an attack, your opponent is often in a vulnerable state. Immediately release and grab — grabs bypass shields and lead to throws that can rack up serious damage.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Ledge Trapping</h3>
+      <p>When an opponent grabs the ledge, position yourself at the ledge's edge and react to their getup option. They must choose between getup attack, roll, jump, or stand — each can be punished differently.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Fast Fall to Land Sooner</h3>
+      <p>Press down on the control stick while airborne (after reaching peak height) to fast fall and land much quicker. Combine with aerials to reduce your time in the air and stay safe.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Mix Up Your Recovery</h3>
+      <p>Never recover the same way twice. Mix up timing, angles, and whether you use your double jump or special first. Predictable recoveries are easy to edgeguard or spike.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Platform Cancel Attacks</h3>
+      <p>On stages with platforms, run off the edge and immediately use a down aerial or other attack to hit opponents standing on the platform below. This beats many defensive options cleanly.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-smash">💀 Expert Level</div>
+  <div class="tips-grid">
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>Wavedashing (Melee / Rivals)</h3>
+      <p>In Melee, air-dodge diagonally into the ground just after jumping to slide along the stage. This gives incredible movement options and can be used to approach, retreats, or extend combos.</p>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>Tech Chasing</h3>
+      <p>When your opponent techs (air-dodges to the ground), dash toward the tech direction to keep pressure. Reading and covering their tech options is a key part of high-level play.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>Rage and Stale Moves</h3>
+      <p>Rage (in Ultimate) increases knockback when your % is high. Stale moves lose power with repeated use. At high %, a fresh forward smash can kill when a stale one wouldn't — track this mentally.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card smash-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>Two-Frame Punishes</h3>
+      <p>During ledge grab, there's a 2-frame vulnerability when a character first grabs the ledge. Hitting this window with the right hitbox (like a down tilt near the ledge) scores huge punishes.</p>
+      <div class="stars">★★★★★</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MARIO WORLD ==================== -->
+<section id="mario" class="section">
+  <div class="section-header">
+    <span class="icon">🍄</span>
+    <h2 class="mario-color">Super Mario World<br>Tips & Tricks</h2>
+    <span class="badge tag-mario">22 Tips</span>
+    <a class="buy-now-btn" 
+       data-ns="https://www.amazon.com/s?k=super+mario+world+nintendo+switch" 
+       data-ns2="https://www.amazon.com/s?k=super+mario+world+nintendo+switch+2"
+       href="https://www.amazon.com/s?k=super+mario+world+nintendo+switch" target="_blank">🛒 BUY NOW</a>
+  </div>
+
+  <div class="game-backstory backstory-mario">
+    <h4>📖 THE STORY</h4>
+    <p>Super Mario World (1990) launched alongside the Super Nintendo and became one of the best-selling games of all time. The story follows Mario and Luigi as they arrive in Dinosaur Land for a vacation, only to discover that Princess Peach has been kidnapped by Bowser and the Koopalings while they slept. Exploring the lush, imaginative world, Mario discovers Yoshi — a friendly dinosaur who has been trapped inside an egg by the Koopalings — and the two team up to rescue the Princess. Their adventure takes them across seven distinctive worlds: from Yoshi's Island and Donut Plains to the haunted Ghost Houses of the Forest of Illusion and the scorching Valley of Bowser, culminating in a final battle inside Bowser's Castle. The game introduced Yoshi, cape flight, and the iconic secret exits that gave the overworld a non-linear feel unlike anything Nintendo had made before.</p>
+  </div>
+
+  <div class="subsection-title sub-mario">🌟 Getting Started</div>
+  <div class="tips-grid">
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Spin Jump for Safety</h3>
+      <p>The spin jump (press Y or B while airborne) is immune to fireballs and some enemy attacks from above. It's also great for bouncing off enemies safely when you're not sure about clearance.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Yoshi's Tongue Catches Items</h3>
+      <p>Yoshi can swallow nearly any item, including shells and power-ups. Ride Yoshi and use his tongue to grab hard-to-reach items or neutralize dangerous shelled enemies from a safe distance.</p>
+      <div class="stars">★☆☆☆☆</div>
+    </div>
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Cape for Invincibility Frames</h3>
+      <p>Spinning the cape (hold Y and turn around rapidly) gives brief invincibility and can deflect enemies and projectiles. It's also one of the most powerful tools in the whole game.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Hold Run to Dash</h3>
+      <p>Hold the Y or B button to run and build speed. Running is essential for the cape flight, long jumps, and reaching secret areas. Many bonus rooms require a running start to reach.</p>
+      <div class="stars">★☆☆☆☆</div>
+    </div>
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Save at Fortresses</h3>
+      <p>The game only autosaves after clearing castles, ghost houses, and fortresses. After conquering a tough fortress, your progress is saved — so seek these out if you want to preserve hard-earned gains.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-mario">🗺️ Secrets & Shortcuts</div>
+  <div class="tips-grid">
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-advanced">Secret</span>
+      <h3>Reach Star World Early</h3>
+      <p>In Donut Plains, find the secret exit in Donut Plains 1 (use a key carried through the yellow door) to unlock a shortcut to Star World, bypassing several worlds entirely.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-advanced">Secret</span>
+      <h3>Special Zone for All 96 Exits</h3>
+      <p>Completing all 8 stages in the Special Zone rewards you with a reskinned overworld and changes some enemy graphics. It also marks your save file — a badge of honor for completionists.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-advanced">Secret</span>
+      <h3>Blue Yoshi Eats Anything</h3>
+      <p>Blue Yoshi can fly with any shell in his mouth — not just blue shells like in vanilla. Find a Blue Yoshi early via Star World to bypass entire sections of difficult levels.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-advanced">Secret</span>
+      <h3>Yellow Switch Unlocks Trampolines</h3>
+      <p>Activating the yellow Switch Palace fills in yellow dotted blocks across the game, including useful platforms in several stages that make previously impossible shortcuts reachable.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-advanced">Secret</span>
+      <h3>Lunar Dragon Secret Exit</h3>
+      <p>In the Valley of Bowser, find the secret exit in Funky to unlock a direct path to Bowser's castle. This is one of the most well-hidden shortcuts in the whole game.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-mario">🎮 Power-Up Mastery</div>
+  <div class="tips-grid">
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>Cape Flying Technique</h3>
+      <p>To fly indefinitely with the cape, run to full speed, jump, then alternate between holding right and pressing left at the peak of each swing. Mastering the timing lets you soar through entire levels.</p>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-advanced">Tips</span>
+      <h3>Fire Flower vs. Cape Priority</h3>
+      <p>The cape is almost always the stronger power-up for traversal and combat. However, fire flowers are useful against Reznors and Bowser's final phase, so switch situationally.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>P-Balloon for Skipping Stages</h3>
+      <p>The P-Balloon inflates Mario to float up. In Cheese Bridge Area, inflate and float right past the goal gate to reach the secret exit leading to Soda Lake — a massive World 5 skip.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-advanced">Tips</span>
+      <h3>Carry a Shell Into a Boss</h3>
+      <p>Entering some boss rooms while carrying a koopa shell lets you throw it immediately for fast damage. This especially speeds up the Reznor fights at the end of fortress stages.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-mario">♾️ Extra Lives</div>
+  <div class="tips-grid">
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-basic">Tip</span>
+      <h3>Yoshi Coin Bonus Room Trick</h3>
+      <p>After collecting all 5 Dragon Coins in a stage, they stop giving bonus lives — but going back to early stages with a fresh counter each session keeps the bonus lives rolling in early on.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card mario-card">
+      <span class="tip-tag tag-advanced">Tip</span>
+      <h3>Bonus Game Shell Bounce</h3>
+      <p>In the end-of-level bonus game, bounce on the same mushroom or star repeatedly to build up multiplier points rapidly and earn a large batch of lives quickly.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ANIMAL CROSSING ==================== -->
+<section id="ac" class="section">
+  <div class="section-header">
+    <span class="icon">🌿</span>
+    <h2 class="ac-color">Animal Crossing<br>Tips & Tricks</h2>
+    <span class="badge tag-ac">24 Tips</span>
+    <a class="buy-now-btn" 
+       data-ns="https://www.amazon.com/s?k=animal+crossing+new+horizons+nintendo+switch" 
+       data-ns2="https://www.amazon.com/s?k=animal+crossing+new+horizons+nintendo+switch+2"
+       href="https://www.amazon.com/s?k=animal+crossing+new+horizons+nintendo+switch" target="_blank">🛒 BUY NOW</a>
+  </div>
+
+  <div class="game-backstory backstory-ac">
+    <h4>📖 THE STORY</h4>
+    <p>Animal Crossing: New Horizons (2020) invites you to start a new life on a deserted island as part of Tom Nook's "Nook Inc. Deserted Island Getaway Package." With nothing but a tent, a few basic tools, and two fellow villagers, you begin transforming a wild, empty island into a thriving community entirely of your own design. There is no villain to defeat and no kingdom to save — instead the game unfolds in real time alongside the real-world clock and calendar, with new events, seasonal changes, seasonal fish and bugs, and visiting characters appearing on their own schedule. Over time you invite new animal villagers to move in, terraform the landscape, build bridges and inclines, decorate every inch of the island, and work toward earning the coveted 5-star island rating from Isabelle. Released during the COVID-19 pandemic, New Horizons became a global cultural phenomenon and the best-selling entry in the series, offering millions of players a peaceful, creative retreat at a uniquely difficult moment in history.</p>
+  </div>
+
+  <div class="subsection-title sub-ac">🏝️ Island Life Basics (New Horizons)</div>
+  <div class="tips-grid">
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Talk to Villagers Daily</h3>
+      <p>Chatting with your villagers every day builds friendship. High friendship unlocks unique dialogue, framed photos as gifts, and sometimes rare furniture. Neglect them and they might ask to leave.</p>
+      <div class="stars">★☆☆☆☆</div>
+    </div>
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Plant Bell Trees for Income</h3>
+      <p>Dig up a glowing spot on the ground and bury 10,000 Bells to grow a tree that yields 30,000 Bells when it matures. This is the most reliable passive income method in early game.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Hit Rocks for Resources</h3>
+      <p>Hit each rock 8 times in quick succession (eat nothing) for maximum stone, iron nuggets, clay, and sometimes Bells. Stand at an angle and dig two holes behind you to avoid being knocked back.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Check Nook Shopping Daily</h3>
+      <p>Nook Shopping in the Nook Stop refreshes with new seasonal and rotating items daily. Order every day to steadily fill your catalog and catch limited-time items before they disappear.</p>
+      <div class="stars">★☆☆☆☆</div>
+    </div>
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Shake Trees for Furniture</h3>
+      <p>Every day, two random hardwood trees on your island (not fruit trees or palm trees) contain furniture pieces. Shake all trees carefully — watch out for wasps that can also drop out!</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Don't Miss Balloon Presents</h3>
+      <p>Balloon presents float in from the beach on a schedule tied to the minute hand of the clock (ending in 4 or 9). Listen for the noise and shoot them down with your slingshot for furniture and Bells.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-ac">💰 Making Bells Fast</div>
+  <div class="tips-grid">
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-advanced">Bells</span>
+      <h3>Turnip (Stalk Market) Strategy</h3>
+      <p>Buy turnips on Sunday mornings from Daisy Mae. Check Nook's Cranny prices twice daily and sell when prices exceed 400 Bells per turnip. Use Turnip Exchange online to find the best prices on other islands.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-advanced">Bells</span>
+      <h3>Mystery Island Farming</h3>
+      <p>Use Nook Miles Tickets to visit mystery islands. Islands with rare fruit, bamboo, or high-value bugs and fish provide massive Bell boosts when you load up and sell at Nook's Cranny or CJ and Flick.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-advanced">Bells</span>
+      <h3>Sell to CJ and Flick</h3>
+      <p>CJ (fish) and Flick (bugs) pay 1.5× the normal Nook's Cranny price. When they visit your island, save up your catches and sell all at once. Also commission sculptures from them for rare collectibles.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-advanced">Bells</span>
+      <h3>Catalog Duplication</h3>
+      <p>When a friend drops an item on your island, pick it up and immediately return it without pocketing it. You'll catalog it for free ordering later — a great way to collect expensive furniture without spending Bells.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-ac">🌸 Island Decorating & Design</div>
+  <div class="tips-grid">
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-advanced">Design</span>
+      <h3>Use Custom Paths to Theme Your Island</h3>
+      <p>After unlocking the Island Designer app (K.K. Slider concert), download creator codes from online communities or make your own custom ground paths to give your island a cohesive visual theme.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-basic">Design</span>
+      <h3>Place Furniture Outdoors</h3>
+      <p>Almost any furniture item can be placed outside using the Island Designer or by dropping from your inventory. Create outdoor themed areas, cafes, libraries, or parks to give your island personality.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-advanced">Design</span>
+      <h3>Terraform for Perfect Elevation</h3>
+      <p>Use the cliff construction tool to create dramatic multi-tiered landscapes. Place villager homes on elevated cliffs for a premium look, and use inclines to connect areas without breaking visual flow.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-advanced">Design</span>
+      <h3>Hybrid Flower Breeding</h3>
+      <p>Plant flowers of the same type in a checkerboard pattern to encourage breeding. Rare hybrids like blue roses, purple tulips, and gold roses are highly sought-after and take planning to grow reliably.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-ac">🎣 Rare Catches & Critters</div>
+  <div class="tips-grid">
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-expert">Rare</span>
+      <h3>Catch the Coelacanth in Rain</h3>
+      <p>The rare Coelacanth (100,000 Bells!) only appears in the sea during rainy weather. When it rains, head to the ocean with bait — they're large fish shadows so rule out other large fish by shape.</p>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-expert">Rare</span>
+      <h3>Tarantula / Scorpion Island Trick</h3>
+      <p>Visit a mystery island at night and clear all vegetation, flowers, and rocks. This forces the island to spawn mostly tarantulas (winter) or scorpions (summer), which sell for 8,000 Bells each.</p>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-advanced">Rare</span>
+      <h3>Use Fish Bait at River Mouths</h3>
+      <p>Rare river fish like the golden trout and stringfish only appear at clifftop river sources. Craft bait from Manila clams and use it specifically at elevated river tiles to maximize rare fish chances.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card ac-card">
+      <span class="tip-tag tag-advanced">Rare</span>
+      <h3>Sneak Up on Bugs</h3>
+      <p>Hold A with your net and crouch to slowly approach rare bugs like the Peacock Butterfly or Rajah Brooke. Running scares most high-value insects away before you can catch them.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MARIO KART ==================== -->
+<section id="kart" class="section">
+  <div class="section-header">
+    <span class="icon">🏎️</span>
+    <h2 class="kart-color">Mario Kart<br>Tips & Tricks</h2>
+    <span class="badge tag-kart">20 Tips</span>
+    <a class="buy-now-btn" 
+       data-ns="https://www.amazon.com/s?k=mario+kart+8+deluxe+nintendo+switch" 
+       data-ns2="https://www.amazon.com/s?k=mario+kart+8+deluxe+nintendo+switch+2"
+       href="https://www.amazon.com/s?k=mario+kart+8+deluxe+nintendo+switch" target="_blank">🛒 BUY NOW</a>
+  </div>
+
+  <div class="game-backstory backstory-kart">
+    <h4>📖 THE STORY</h4>
+    <p>Mario Kart 8 Deluxe (2017) is the enhanced Switch version of the Wii U's Mario Kart 8 (2014), and the best-selling Mario Kart game in history. The premise is elegantly simple: Bowser has organised yet another grand prix, and every resident of the Mushroom Kingdom — heroes, villains, and everyone in between — has shown up to race. The game features 48 original courses and, through the Booster Course Pass DLC, a further 48 remastered tracks from across the franchise's history, bringing the total to 96 circuits spanning decades of Nintendo racing history. The anti-gravity mechanic introduced in MK8 allows karts to race on walls and ceilings, completely rethinking track design. The Deluxe version added the beloved Battle Mode, revamped item mechanics, and a full roster of beloved characters. The game's "story" is simply the joy of racing — the thrill of surviving a Blue Shell in first place, the chaos of a well-placed banana, and the glory of crossing the finish line first.</p>
+  </div>
+
+  <div class="subsection-title sub-kart">🏁 Racing Basics</div>
+  <div class="tips-grid">
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Rocket Start Every Race</h3>
+      <p>Hold the accelerator just as the "2" fades during the countdown to boost off the starting line. Time it too early and you'll spin out — the sweet spot is right as the 2 disappears from screen.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Draft Behind Opponents</h3>
+      <p>Driving close behind another racer builds up a blue speed-boost trail. Stay in their slipstream long enough and you'll rocket past them — a free overtake with zero items required.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Drift for Mini-Turbos</h3>
+      <p>Hold the drift button through corners to charge mini-turbos. Blue sparks give a small boost, orange sparks give a bigger one, and purple sparks (in MK8D) give the strongest. Chain them on long turns.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Coins Win Races</h3>
+      <p>Collecting coins increases your top speed up to a cap of 10. Players who consistently pick up coins throughout a race will be noticeably faster than those who ignore them — don't skip over them.</p>
+      <div class="stars">★☆☆☆☆</div>
+    </div>
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Hold Items Behind You</h3>
+      <p>Hold the item button without releasing to trail a shell or banana behind your kart. This blocks incoming red and green shells automatically, acting as a free shield until you need to use it offensively.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-kart">⚡ Intermediate Tactics</div>
+  <div class="tips-grid">
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Trick Off Every Ramp</h3>
+      <p>Flick the control stick or press a trick button when launching off a ramp or boost pad to pull off a trick. This gives you a free mini-turbo boost on landing — use it on every single jump.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Anti-Gravity Sections Speed You Up</h3>
+      <p>On anti-gravity track sections, bumping into other karts and the glowing bumpers actually boosts your speed rather than slowing you down. Seek contact in these zones instead of avoiding it.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Aim Red Shells Around Corners</h3>
+      <p>Red shells home in on the nearest racer ahead of you, but they can be blocked or lost in tight turns. Fire immediately after launching for the best tracking chance while the target is in open space.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Feather Steer to Avoid Drifting Wide</h3>
+      <p>On tight hairpin turns, ease up on the drift instead of holding it full through the apex. Releasing and re-pressing the drift slightly corrects your line and keeps speed better than oversteering.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Use Super Horn Against Blue Shells</h3>
+      <p>The Super Horn is the only reliable counter to the Blue Shell (Spiny Shell). Hoard it in first place and save it specifically for the distinctive siren sound signaling an incoming blue shell.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Build-Up Combos in Battle Mode</h3>
+      <p>In Balloon Battle, offensive items score points but defensive play wins. Keep a shell trailing behind and use mushrooms to dodge incoming attacks — surviving longer beats landing a few lucky hits.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-kart">🏆 Expert & Character Meta</div>
+  <div class="tips-grid">
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>Kart Build Matters in Online Play</h3>
+      <p>Heavier characters have higher top speed but lower acceleration and handling. For online ranked play, many veterans prefer mid-weight builds that balance stats rather than min-maxing any single attribute.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>Shortcut Hunting Changes Everything</h3>
+      <p>Every track in Mario Kart has at least one known shortcut. Learning even the top 2–3 shortcuts per course — like Rainbow Road's rail trick or Coconut Mall's escalator skip — can shave multiple seconds per lap.</p>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>Item Luck Isn't Entirely Random</h3>
+      <p>Item rolls are weighted by your race position. Further back means stronger items. If you're in 12th and get a coin, it's extremely rare — in most cases the game is giving you tools to catch up.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card kart-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>Cut Mushroom Use Timing Precisely</h3>
+      <p>Mushrooms are most valuable when used through off-road terrain that would normally slow you down (like dirt or grass shortcuts). Using them on normal asphalt wastes their potential speed advantage.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MARIO KART WORLD ==================== -->
+<section id="kartw" class="section">
+  <div class="section-header">
+    <span class="icon">🌍</span>
+    <h2 class="kartw-color">Mario Kart World<br>Tips & Tricks</h2>
+    <span class="badge tag-kartw">18 Tips</span>
+    <a class="buy-now-btn" 
+       data-ns="https://www.amazon.com/s?k=mario+kart+world+nintendo+switch" 
+       data-ns2="https://www.amazon.com/s?k=mario+kart+world+nintendo+switch+2"
+       href="https://www.amazon.com/s?k=mario+kart+world+nintendo+switch+2" target="_blank">🛒 BUY NOW</a>
+  </div>
+
+  <div class="game-backstory backstory-kartw">
+    <h4>📖 THE STORY</h4>
+    <p>Mario Kart World (2025) is the first mainline Mario Kart entry built exclusively for the Nintendo Switch 2, and the most ambitious reimagining of the franchise since its debut. Rather than a series of disconnected cup circuits, the entire game takes place across one seamless, fully explorable open world — a vibrant, interconnected landscape that players can drive through freely between events. Race routes now span this living world as point-to-point journeys, cutting through cities, across mountain passes, and along coastlines. The new Knockout Tour mode pits 24 racers against each other across multiple consecutive legs, eliminating the last-placed racer after each leg until only one champion remains. The game features a massive roster of characters, the most diverse track environments in series history, and new traversal mechanics like swimming underwater and driving on walls. It represents Mario Kart's boldest step forward — not just more courses, but an entirely new way to experience the world of racing.</p>
+  </div>
+
+  <div class="subsection-title sub-kartw">🗺️ Open World Basics</div>
+  <div class="tips-grid">
+    <div class="tip-card kartw-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Explore Between Races</h3>
+      <p>Mario Kart World's open world persists between events. Drive freely through it to discover hidden shortcuts, collectibles, and alternate routes that connect Grand Prix circuits — the map rewards exploration.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card kartw-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Free Roam Unlocks Course Knowledge</h3>
+      <p>Practising course sections in Free Roam with no race pressure is the best way to memorize tricky turns and shortcuts before they matter in a ranked event. The world is always accessible between events.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card kartw-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Coin Farming in the Open World</h3>
+      <p>Coins scattered across the open world respawn regularly. Do a quick sweep of your local area before a race to top up your coin count and enter events closer to the speed cap from the start.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card kartw-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Characters Have World Abilities</h3>
+      <p>In Mario Kart World, different characters come with unique abilities that matter outside of races too. Experiment with a few to find one whose ability meshes with your preferred exploration and racing style.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-kartw">🚀 Racing in a Connected World</div>
+  <div class="tips-grid">
+    <div class="tip-card kartw-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Point-to-Point Races Reward Route Knowledge</h3>
+      <p>Unlike circuit races, some Mario Kart World events race across the open map from point A to B. Knowing alternate roads and off-road cuts through terrain can lead to dramatically different — and faster — routes.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card kartw-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Use the World Map to Plan Paths</h3>
+      <p>Before entering a point-to-point event, study the world map carefully. Identify the widest road sections for drafting and the tightest chokepoints where you want to have items ready defensively.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card kartw-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Knockout Tour Stamina Strategy</h3>
+      <p>In Knockout Tour mode, you race across multiple legs and the last-place racer is eliminated each time. Don't burn all your items early — save key defensive items for the leg finishes where elimination actually happens.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card kartw-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Swim and Wall-Ride Sections Are Speed Opportunities</h3>
+      <p>Mario Kart World introduces swimming underwater and wall-riding on certain terrain types. These sections reward aggressive line-taking — hug the inside of curves even on non-standard surfaces for time gains.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card kartw-card">
+      <span class="tip-tag tag-advanced">Advanced</span>
+      <h3>Tall Grass and Terrain Affects Speed</h3>
+      <p>Off-road terrain varies in its speed penalty across the open world. Some grassy areas slow you down only a little — enough to make cutting through worthwhile with a mushroom or character ability boost.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-kartw">🏅 Advanced & Competitive</div>
+  <div class="tips-grid">
+    <div class="tip-card kartw-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>Master the New Drift Mechanics</h3>
+      <p>Mario Kart World refines the drift system with new terrain interactions. Drifting across different surface types changes your mini-turbo charge rate — experiment in Free Roam to understand each surface's feel.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card kartw-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>World Events Cycle — Time Your Entry</h3>
+      <p>Special timed world events (like seasonal races and challenges) rotate on a schedule. Check the event board regularly and prioritize limited-time events first — their exclusive rewards don't come back easily.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card kartw-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>Co-op Exploring Speeds Up Discovery</h3>
+      <p>Playing in co-op open world lets you and a friend cover different areas simultaneously. Splitting up to find shortcuts, hidden items, and alternate race paths together is far faster than solo exploration.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card kartw-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>Vehicle Upgrades Compound Over Time</h3>
+      <p>Upgrades found or earned in the world stack with your base kart stats. Prioritise upgrades that complement your character's natural strengths rather than trying to cover weaknesses with contradictory parts.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ZELDA ==================== -->
+<section id="zelda" class="section">
+  <div class="section-header">
+    <span class="icon">🗡️</span>
+    <h2 class="zelda-color">The Legend of Zelda<br>Tips & Tricks</h2>
+    <span class="badge tag-zelda">22 Tips</span>
+    <a class="buy-now-btn" 
+       data-ns="https://www.amazon.com/s?k=zelda+tears+of+the+kingdom+nintendo+switch" 
+       data-ns2="https://www.amazon.com/s?k=zelda+tears+of+the+kingdom+nintendo+switch+2"
+       href="https://www.amazon.com/s?k=zelda+tears+of+the+kingdom+nintendo+switch" target="_blank">🛒 BUY NOW</a>
+  </div>
+
+  <div class="game-backstory backstory-zelda">
+    <h4>📖 THE STORY</h4>
+    <p>The Legend of Zelda: Breath of the Wild (2017) reinvented open-world adventure gaming. Link awakens with no memory in the Shrine of Resurrection, guided only by a mysterious voice. Hyrule lies in ruins — 100 years ago, the ancient evil Calamity Ganon seized control of the Divine Beasts and Guardian robots, devastating the kingdom and forcing Princess Zelda to contain him at Hyrule Castle at the cost of her freedom. With Zelda still holding Ganon at bay through sheer will, Link must recover his memories, free the Divine Beasts, and finally confront Calamity Ganon before Zelda's strength gives out. Its sequel, Tears of the Kingdom (2023), picks up shortly after: a mysterious rot spreads beneath Hyrule Castle, and an ancient mummified king — Ganondorf — awakens, shattering the Master Sword and hurling Link and Zelda into chaos. Zelda disappears into the depths of time, and Link must unite the four regions of Hyrule, find the Sages, master ancient powers left behind by the Zonai civilisation, and confront Ganondorf in his most terrifying form yet to save both Zelda and the world. Together these two games form the most acclaimed open-world Zelda saga ever made.</p>
+  </div>
+
+  <div class="subsection-title sub-zelda">🌿 Getting Started (Breath of the Wild & Tears of the Kingdom)</div>
+  <div class="tips-grid">
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Climb Everything</h3>
+      <p>Link can scale almost any surface in both BotW and TotK. When stuck, look up — climbing a hill or tower often reveals the path forward, a new shrine, or a shortcut that bypasses the obstacle entirely.</p>
+      <div class="stars">★☆☆☆☆</div>
+    </div>
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Cook Food Before Dangerous Areas</h3>
+      <p>Raw ingredients give minimal healing. Cooked meals using a campfire or cooking pot restore far more hearts and can grant bonus effects like heat resistance, speed boosts, or extra stamina.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Activate Towers First</h3>
+      <p>In BotW, Sheikah Towers reveal the map for their region. In TotK, Skyview Towers launch you into the air and fill the map. Always activate nearby towers before exploring — they're free fast travel and navigation points.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Shrines = Heart Containers</h3>
+      <p>Every four Spirit Orbs from shrines let you trade for a Heart Container or Stamina Vessel at a Goddess Statue. Prioritise heart upgrades early — more hearts means surviving fights that would otherwise end your run.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Weapons Break — Don't Hoard Them</h3>
+      <p>Weapon durability is finite and weapons will always break eventually. Use what you have freely, especially against strong enemies who drop better replacements. Hoarding weapons you're afraid to lose is a losing strategy.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Stealth Lets You Sneak Attack</h3>
+      <p>Crouch to enter stealth mode and sneak behind enemies for a sneak strike dealing massive damage. Wearing stealth-boosting armor or eating stealth food makes approaching enemy camps much safer.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-zelda">⚔️ Combat Techniques</div>
+  <div class="tips-grid">
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-advanced">Combat</span>
+      <h3>Flurry Rush Is Your Best Move</h3>
+      <p>Dodge at the exact moment an enemy attacks to trigger a Flurry Rush — a rapid combo of free strikes. Timing backflips against slow-striking enemies and side-hops against charges makes many tough fights trivial.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-advanced">Combat</span>
+      <h3>Perfect Parry Stuns Enemies</h3>
+      <p>Raise your shield and press A just before an attack lands to parry and reflect it. Perfect parrying Guardian laser blasts sends them straight back for one-hit kills — one of the most satisfying moves in the game.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-advanced">Combat</span>
+      <h3>Use the Environment as a Weapon</h3>
+      <p>Rolling boulders down onto enemies, using Magnesis to fling metal objects, dropping bomb barrels, and blowing up explosive barrels near clusters all deal massive damage while preserving your weapon durability.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-advanced">Combat</span>
+      <h3>Elemental Arrows Change Fights</h3>
+      <p>Fire arrows set grass and enemies ablaze. Ice arrows freeze enemies solid for free follow-up hits. Shock arrows stun everyone nearby, including mounted enemies — use the element that counters the situation.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-advanced">Combat</span>
+      <h3>Freeze Time With Stasis</h3>
+      <p>In BotW, Stasis+ can freeze enemies briefly. Hit a frozen enemy with heavy weapons to build up kinetic energy — when Stasis ends they'll fly in the accumulated direction. Great for launching tough enemies off cliffs.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-zelda">🔨 Tears of the Kingdom — Ultrahand & Fuse</div>
+  <div class="tips-grid">
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-expert">TotK</span>
+      <h3>Fuse Rocks to Weapons Early</h3>
+      <p>Fusing a large rock to a stick or early weapon dramatically increases its damage before you have access to better gear. Boulder-fused weapons also break boulders in one hit, useful for mining Zonaite and ore deposits.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-expert">TotK</span>
+      <h3>Recall on Falling Rocks = Free Elevator</h3>
+      <p>Use Recall on a rock or platform that fell from the sky to ride it back up to where it came from. This trick reaches Sky Islands that look completely inaccessible without specific equipment or much stamina.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-expert">TotK</span>
+      <h3>Autobuild Saves Your Best Contraptions</h3>
+      <p>Once you find Autobuild, save your most useful vehicle and weapon designs as Favorites. This lets you instantly reconstruct complex contraptions anywhere in the world without reassembling them piece by piece.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-expert">TotK</span>
+      <h3>Ascend Through Ceilings</h3>
+      <p>Ascend travels you straight up through any solid surface above you. Use it inside caves, mountain overhangs, or enemy fortresses to emerge on top of structures, bypassing every obstacle and enemy guarding the entrance.</p>
+      <div class="stars">★★★★★</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-zelda">🌟 Exploration & Secrets</div>
+  <div class="tips-grid">
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-advanced">Explore</span>
+      <h3>Korok Seeds Fund Inventory Space</h3>
+      <p>Trading Korok Seeds to Hestu expands your weapon, bow, and shield slots. More slots means carrying more weapons before they break — especially important in the late game when high-tier weapons appear frequently.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-advanced">Explore</span>
+      <h3>Unusual Rock Formations Hide Koroks</h3>
+      <p>Sparkling leaves, lone rocks on pillars, pinwheels, and suspicious rock arrangements almost always indicate a hidden Korok. If something looks out of place in the environment, interact with it or pick it up.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card zelda-card">
+      <span class="tip-tag tag-expert">Explore</span>
+      <h3>The Depths Mirror the Surface</h3>
+      <p>In TotK, the Depths map directly mirrors the overworld above. Ancient Ruins in the Depths sit directly below surface landmarks. Use this to navigate underground and locate Lightroots, which mirror Skyview Tower positions.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== KIRBY ==================== -->
+<section id="kirby" class="section">
+  <div class="section-header">
+    <span class="icon">🌸</span>
+    <h2 class="kirby-color">Kirby and the<br>Forgotten Land</h2>
+    <span class="badge tag-kirby">20 Tips</span>
+    <a class="buy-now-btn" 
+       data-ns="https://www.amazon.com/s?k=kirby+and+the+forgotten+land+nintendo+switch" 
+       data-ns2="https://www.amazon.com/s?k=kirby+and+the+forgotten+land+nintendo+switch+2"
+       href="https://www.amazon.com/s?k=kirby+and+the+forgotten+land+nintendo+switch" target="_blank">🛒 BUY NOW</a>
+  </div>
+
+  <div class="game-backstory backstory-kirby">
+    <h4>📖 THE STORY</h4>
+    <p>Kirby and the Forgotten Land (2022) is Kirby's first fully three-dimensional platformer adventure and one of the most beloved games in the series. The story begins when a mysterious vortex appears over Dream Land, sucking Kirby and the Waddle Dees into it. Kirby awakens alone in the Forgotten Land — a strange, overgrown world where nature has reclaimed the remnants of a long-vanished civilisation, its empty shopping malls and amusement parks now home to a vicious gang of beast-like creatures called the Beast Pack. These fearsome animals, led by the enigmatic Leongar, have been capturing Kirby's Waddle Dee friends and imprisoning them in cages across the land. Kirby must journey through six worlds, rescuing Waddle Dees, mastering the new Mouthful Mode ability that lets him inhale and transform into cars, vending machines, and other objects, and ultimately uncover the terrifying force controlling Leongar from the shadows. The game's vibrant, melancholy world of forgotten civilisation gives it an emotional depth unusual for the franchise, while its joyful platforming and co-op mode make it one of Nintendo's most accessible and charming adventures in years.</p>
+  </div>
+
+  <div class="subsection-title sub-kirby">⭐ Getting Started</div>
+  <div class="tips-grid">
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Inhale Everything — Then Decide</h3>
+      <p>Kirby can swallow almost any enemy to copy its ability. Don't rush to use the ability immediately — inhale first to test what you get. You can always spit it out if the power isn't what you need.</p>
+      <div class="stars">★☆☆☆☆</div>
+    </div>
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Save Elfilin Capsules Every Stage</h3>
+      <p>Hidden Waddle Dees are locked inside capsules in every stage. Rescuing all of them in a world unlocks structures and NPCs in Waddle Dee Town — including a weapon shop and café with permanent stat boosts.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Float Over Gaps Freely</h3>
+      <p>Kirby can inhale air and float indefinitely. When facing a tricky jump or spike pit, just float across — there's no stamina limit. This makes platforming much more forgiving than in most action games.</p>
+      <div class="stars">★☆☆☆☆</div>
+    </div>
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Complete Hidden Goals for Star Coins</h3>
+      <p>Each stage has 3 hidden mission objectives shown after you complete it the first time. Replaying stages to clear these missions earns Star Coins used to upgrade copy abilities — worth prioritising early.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Spend Star Coins on Upgrades First</h3>
+      <p>Sword, Hammer, and Ranger upgrades at Waddle Dee's Weapons Shop dramatically increase damage output. Upgrading a favourite ability to max tier as early as possible makes boss fights much more manageable.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-kirby">🦁 Mouthful Mode Mastery</div>
+  <div class="tips-grid">
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-advanced">Mouthful</span>
+      <h3>Car Mouthful — Drift for Speed Boosts</h3>
+      <p>In Car Mouthful Mode, holding the drift input through a turn builds speed just like Mario Kart. Release at the right moment to rocket out of corners much faster than driving straight ever allows.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-advanced">Mouthful</span>
+      <h3>Vending Machine — Spam Items on Bosses</h3>
+      <p>Vending Machine Mouthful Mode fires food and cans that deal damage and heal you simultaneously. Against tough bosses, spam projectiles freely — you'll damage the boss while recovering health at the same time.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-advanced">Mouthful</span>
+      <h3>Cone Mouthful Destroys Hidden Walls</h3>
+      <p>Traffic Cone Mouthful Mode lets you dash and drill into the ground. Use it to smash cracked floors and hidden breakable walls that reveal secret areas, Star Coins, and shortcut paths through stages.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-advanced">Mouthful</span>
+      <h3>Stairs Mouthful Reveals Secrets Above</h3>
+      <p>Staircase Mouthful Mode lets you charge upward at a steep angle. Many secret platforms and hidden capsule rooms are only reachable by launching diagonally upward — look for suspicious high ceilings near staircases.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-kirby">⚔️ Best Copy Abilities</div>
+  <div class="tips-grid">
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-expert">Top Pick</span>
+      <h3>Sword — The All-Rounder</h3>
+      <p>Sword ability is fast, has excellent range, and upgrades into powerful variants like Meta Knight Sword and Crystal Sword. It's the most consistent choice for general play and handles every boss well.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-expert">Top Pick</span>
+      <h3>Hammer — Slow but Devastating</h3>
+      <p>Hammer deals enormous single-hit damage and the fully charged spin attack stuns most enemies. Ideal for boss phases where you have time to wind up. Upgrade it to Gigant Hammer for one of the highest DPS outputs.</p>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-expert">Top Pick</span>
+      <h3>Ranger — Safe Ranged Dominance</h3>
+      <p>Ranger lets you attack from a safe distance and can be upgraded to Desperado, which fires rapid shots with excellent damage. Great for players who prefer to keep clear of dangerous boss attack patterns.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-expert">Top Pick</span>
+      <h3>Ice — Freeze and Slide</h3>
+      <p>Ice ability freezes enemies solid, turning them into projectiles you can throw into others. The freeze also buys time to heal or reposition. Upgraded to Frosty Ice, the freeze radius expands to hit entire groups.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-kirby">🏆 Post-Game & Secrets</div>
+  <div class="tips-grid">
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-expert">Post-Game</span>
+      <h3>Unlock Meta Knight Sword Early</h3>
+      <p>Meta Knight Sword, one of the strongest sword upgrades, requires blueprints found in specific stages. Check every stage for glowing blueprint chests — you need both the blueprint and Star Coins to unlock the upgrade.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-expert">Post-Game</span>
+      <h3>Wild Mode Unlocks After Main Story</h3>
+      <p>Completing the main story unlocks Wild Mode, a harder difficulty that remixes enemy placements and boss behaviours. It also gates the true final boss — you must clear Wild Mode stages to reach the real ending.</p>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-expert">Post-Game</span>
+      <h3>The Colosseum Tests Every Ability</h3>
+      <p>The Colosseum battle arena in Waddle Dee Town pits you against waves of enemies and bosses. Each arena is locked to a specific copy ability — a great way to master abilities you normally overlook.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card kirby-card">
+      <span class="tip-tag tag-expert">Post-Game</span>
+      <h3>Co-op Bandana Dee Is Nearly Overpowered</h3>
+      <p>In two-player co-op, the second player controls Bandana Dee with a spear. Their spear has excellent range and their attacks stack with Kirby's. Co-op makes even the hardest boss fights significantly easier.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SUPER MARIO ODYSSEY ==================== -->
+<section id="odyssey" class="section">
+  <div class="section-header">
+    <span class="icon">🎩</span>
+    <h2 class="odyssey-color">Super Mario Odyssey<br>Tips & Tricks</h2>
+    <span class="badge tag-odyssey">20 Tips</span>
+    <a class="buy-now-btn"
+       data-ns="https://www.amazon.com/s?k=super+mario+odyssey+nintendo+switch"
+       data-ns2="https://www.amazon.com/s?k=super+mario+odyssey+nintendo+switch+2"
+       href="https://www.amazon.com/s?k=super+mario+odyssey+nintendo+switch" target="_blank">🛒 BUY NOW</a>
+  </div>
+
+  <div class="game-backstory backstory-odyssey">
+    <h4>📖 THE STORY</h4>
+    <p>Super Mario Odyssey (2017) begins with one of the most dramatic openings in Mario history: Bowser crashes Mario and Peach's confrontation, defeats Mario in a brutal one-sided fight, and shatters Mario's iconic red cap before kidnapping Princess Peach to make her his bride in a forced wedding. Mario plummets from Bowser's airship and lands in the Cap Kingdom, where he meets Cappy — a ghost-like being whose sister has also been captured by Bowser for use as Peach's wedding veil. The two form an unlikely alliance; Cappy merges with Mario's cap, granting him the revolutionary ability to throw his hat and capture — temporarily inhabiting and controlling — almost any creature or object he hits. Together they pursue Bowser across a series of spectacular kingdoms inspired by real-world cultures and environments: the bustling metropolis of New Donk City, the culinary chaos of the Luncheon Kingdom, the seaside splendour of the Seaside Kingdom, and many more. Each kingdom brings Mario closer to Bowser's extravagant wedding venue in the Moon Kingdom, where the game's emotional climax delivers one of Nintendo's most affecting and unexpectedly poignant finales.</p>
+  </div>
+
+  <div class="subsection-title sub-odyssey">🎩 Cappy Basics</div>
+  <div class="tips-grid">
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Throw Cappy at Everything</h3>
+      <p>Cappy can interact with nearly every object and enemy in the game. Hitting a coin pile, flower, or glowing spot with Cappy often reveals moons, coins, or secrets that you'd completely miss by just running past.</p>
+      <div class="stars">★☆☆☆☆</div>
+    </div>
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Capture Enemies to Solve Puzzles</h3>
+      <p>Capturing different enemies gives Mario their unique abilities. Many puzzles and moon locations are designed specifically around a nearby capturable enemy — if you're stuck, look for something to capture.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Spin Throw for Extra Distance</h3>
+      <p>Shake the Joy-Con or press the spin button to throw Cappy in a spinning arc. This covers far more ground than a standard throw and can hit multiple enemies or objects in a single toss.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Moons Are Everywhere — Explore Freely</h3>
+      <p>Super Mario Odyssey has hundreds of Power Moons hidden across every kingdom. You need far fewer than the total to progress — don't worry about finding them all first time. Revisit kingdoms later for hidden moons that unlock post-game.</p>
+      <div class="stars">★☆☆☆☆</div>
+    </div>
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Talk to Hint Toad for Moon Tips</h3>
+      <p>Hint Toad appears in every kingdom and sells hints for individual moons using coins. If you're completely stuck on finding a specific moon, buying his hint shows you its precise location on the map.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-odyssey">🏃 Movement & Advanced Tech</div>
+  <div class="tips-grid">
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-advanced">Movement</span>
+      <h3>Cap Jump for Extra Height</h3>
+      <p>Throw Cappy and immediately jump on top of him mid-air for a cap bounce that adds significant extra height. Chain this with a long jump or dive to cover huge distances that normal jumps can't reach.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-advanced">Movement</span>
+      <h3>Dive = Fastest Ground Movement</h3>
+      <p>Jump, throw Cappy forward, then press crouch in mid-air to dive and slide. Repeatedly diving is actually faster than running. Speed runners use this constantly — it's worth learning even for casual play.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-advanced">Movement</span>
+      <h3>Long Jump Off Ledges</h3>
+      <p>Running at full speed then pressing crouch + jump launches a long jump with impressive range. Using it at the edge of a platform adds extra momentum from the drop and lets you clear gaps easily.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-advanced">Movement</span>
+      <h3>Ground Pound Jump Launches High</h3>
+      <p>Ground pound into the floor, then immediately jump the moment Mario touches down for a super-jump that reaches platforms far above normal jump height. Great for reaching elevated moons without cap bouncing.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-advanced">Movement</span>
+      <h3>Wall Jump + Cappy = Extra Height</h3>
+      <p>After wall jumping, immediately throw Cappy upward and jump off him for an extra burst of height. This lets you scale surfaces that seem impossible to climb without specific captures or equipment.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-odyssey">🌙 Moon Hunting Strategies</div>
+  <div class="tips-grid">
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-advanced">Moons</span>
+      <h3>Revisit Kingdoms After Story Beats</h3>
+      <p>Many moons only appear after you complete a kingdom's boss fight or reach a certain story point. Revisiting kingdoms you've already cleared almost always reveals new accessible moons you couldn't get before.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-advanced">Moons</span>
+      <h3>Ground Pound Glowing Spots</h3>
+      <p>Faint glowing or sparkling spots on the ground always hide a buried moon. Ground pound directly on them to dig it out. These are easy to miss while running — slow down and scan the floor regularly.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-advanced">Moons</span>
+      <h3>Multi-Moon Locations Are Worth Prioritising</h3>
+      <p>Main story objectives and certain challenge areas award Multi-Moons worth 3 moons in one. These dramatically accelerate your progress toward the moon total needed to unlock each new kingdom.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-advanced">Moons</span>
+      <h3>Local Co-op Helps Moon Hunting</h3>
+      <p>In two-player mode, one player controls Cappy independently. This makes reaching tricky platforms and cap-bouncing to moons far easier since both players can coordinate the throw and the jump simultaneously.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-odyssey">🏆 Post-Game & Secrets</div>
+  <div class="tips-grid">
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-expert">Post-Game</span>
+      <h3>Darker Side Requires 500 Moons</h3>
+      <p>The true final level — Darker Side of the Moon — unlocks only after collecting 500 Power Moons. It has no checkpoints, requires mastery of every movement technique in the game, and is one of Nintendo's toughest ever challenges.</p>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-expert">Post-Game</span>
+      <h3>Unlocking Luigi's Balloon World</h3>
+      <p>After completing the main story, Luigi appears in every kingdom running Balloon World — a mini-game where you hide or find balloons online. It's a great way to earn extra coins and moons while competing globally.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-expert">Post-Game</span>
+      <h3>Costume Unlocks via Moon Milestones</h3>
+      <p>Reaching moon count milestones unlocks costumes in Crazy Cap shops. The iconic wedding suit and classic Mario outfits require specific moon counts — check the milestone board on the Odyssey ship to track your next unlock.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card odyssey-card">
+      <span class="tip-tag tag-expert">Post-Game</span>
+      <h3>Mushroom Kingdom Hides the Best Secrets</h3>
+      <p>The post-game Mushroom Kingdom contains references to classic Mario games and some of the most creative moon challenges in the whole game. Its moons are deliberately tricky — save it for last when your movement skills are sharpest.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SUPER MARIO BROS WONDER ==================== -->
+<section id="wonder" class="section">
+  <div class="section-header">
+    <span class="icon">✨</span>
+    <h2 class="wonder-color">Super Mario Bros.<br>Wonder Tips & Tricks</h2>
+    <span class="badge tag-wonder">20 Tips</span>
+    <a class="buy-now-btn"
+       data-ns="https://www.amazon.com/s?k=super+mario+bros+wonder+nintendo+switch"
+       data-ns2="https://www.amazon.com/s?k=super+mario+bros+wonder+nintendo+switch+2"
+       href="https://www.amazon.com/s?k=super+mario+bros+wonder+nintendo+switch" target="_blank">🛒 BUY NOW</a>
+  </div>
+
+  <div class="game-backstory backstory-wonder">
+    <h4>📖 THE STORY</h4>
+    <p>Super Mario Bros. Wonder (2023) is the first all-new 2D Mario platformer in over a decade and the most imaginative side-scrolling Mario game Nintendo has ever made. The story begins when Mario, Luigi, Princess Peach, Daisy, Yoshi, and their friends visit the Flower Kingdom at the invitation of Prince Florian, the young ruler of the realm. But before they can settle in, Bowser arrives and seizes the Wonder Flower — a magical artefact unique to the Flower Kingdom — and uses it to merge himself with Prince Florian's castle, transforming into a monstrous, sentient fortress. Now powered by Wonder's boundless magic, Bowser begins reshaping the entire kingdom to his will. Mario and his friends must journey across five worlds to free the enslaved kingdoms, collect Wonder Seeds, and confront Bowser before he permanently fuses with the castle and transforms the Flower Kingdom beyond recognition. What makes the adventure extraordinary is the Wonder Flowers hidden in each stage: touching one triggers a wild, unpredictable transformation unique to that level — gravity reversals, stampedes of enemies, underwater pipe nightmares, and dozens more. Every stage becomes a surprise, making it the most inventive 2D Mario game since the original Super Mario Bros.</p>
+  </div>
+
+  <div class="subsection-title sub-wonder">🌸 Beginner Basics</div>
+  <div class="tips-grid">
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Grab Every Wonder Flower You See</h3>
+      <p>Wonder Flowers trigger the stage's unique transformation — these wild sequences are the heart of the game. Each one is totally different, from turning the level upside-down to becoming a giant Goomba. Never skip them.</p>
+      <div class="stars">★☆☆☆☆</div>
+    </div>
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Wonder Seeds Unlock the World Map</h3>
+      <p>Collecting Wonder Seeds opens new stages and worlds on the overworld. You need a certain number to progress — focus on clearing stages fully rather than rushing ahead to avoid getting locked out later.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Badges Change Your Playstyle Completely</h3>
+      <p>Badges grant Mario special abilities that persist for the whole stage — wall climbing, floating jumps, parachute caps, and more. Experiment freely; switching badges between stages dramatically changes how you approach obstacles.</p>
+      <div class="stars">★★☆☆☆</div>
+    </div>
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Talking Flowers Give Free Hints</h3>
+      <p>Talking Flowers scattered through stages often drop hints about nearby secrets, hidden paths, or upcoming hazards. They're also just delightfully weird — always worth listening to before rushing past.</p>
+      <div class="stars">★☆☆☆☆</div>
+    </div>
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-basic">Basic</span>
+      <h3>Play as Yoshi or Nabbit for Easier Runs</h3>
+      <p>Yoshi and Nabbit are immune to enemy damage, making them perfect for beginners or tricky stages. They can't use power-ups, but surviving difficult sections without worrying about hits makes hard levels far more approachable.</p>
+      <div class="stars">★☆☆☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-wonder">🏅 Wonder Effects & Secrets</div>
+  <div class="tips-grid">
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-advanced">Secret</span>
+      <h3>Search Above and Below Every Wonder Sequence</h3>
+      <p>During Wonder Effect sequences the level layout changes completely, often revealing hidden platforms, coin routes, and shortcuts that don't exist in the normal version of the stage. Look everywhere — not just forward.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-advanced">Secret</span>
+      <h3>Secret Exits Unlock Extra Stages</h3>
+      <p>Many stages have a hidden exit separate from the main Wonder Seed goal. Reaching it unlocks secret stages on the world map — often the hardest levels in the game. Look for alternate paths near the stage's end.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-advanced">Secret</span>
+      <h3>Standees Let You Revive Online Players</h3>
+      <p>In online multiplayer, placing a Standee (your character as a statue) next to a fallen player revives them. Prioritise placing Standees near tough sections rather than using them as decoration — saves runs from falling apart.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-advanced">Secret</span>
+      <h3>Elephant Mario Stores Water for Later</h3>
+      <p>As Elephant Mario, you can fill your trunk with water and carry it between sections. Holding water lets you spray hidden blocks and plants that reveal extra coins and 1-Ups — don't drain it immediately after picking it up.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-advanced">Secret</span>
+      <h3>Bubble Mario Traps Enemies for Coins</h3>
+      <p>Bubble Mario shoots bubbles that capture enemies. Popping a bubble full of enemies releases coins — chain-capturing multiple enemies before popping gives a coin bonus that quickly adds up across a whole stage.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-wonder">⚡ Badges & Power-Up Mastery</div>
+  <div class="tips-grid">
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-advanced">Badge</span>
+      <h3>Wall-Climb Badge Opens Huge Shortcuts</h3>
+      <p>The Wall-Climb Badge lets Mario scale vertical surfaces without jumping. Entire sections of levels become trivially short with it equipped — try it on stages with tall walls that previously felt impossible to navigate quickly.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-advanced">Badge</span>
+      <h3>Parachute Cap Gives Incredible Control</h3>
+      <p>The Parachute Cap badge slows your descent massively when you hold jump mid-air. It makes precise landings on tiny platforms trivial and lets you float across wide pits that would normally be deadly.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-advanced">Badge</span>
+      <h3>Crouching Charge Badge Speeds Up Runs</h3>
+      <p>The Crouching Charge Badge lets you build speed while ducking and then launch forward. Excellent for speedrunning sections and reaching platforms that require a running start but lack enough flat ground to build momentum normally.</p>
+      <div class="stars">★★★☆☆</div>
+    </div>
+  </div>
+
+  <div class="subsection-title sub-wonder">🏆 Completion & Special Worlds</div>
+  <div class="tips-grid">
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>Special World Unlocks After All Five Worlds</h3>
+      <p>Clearing the five main worlds unlocks the Special World — a final set of gruelling remix stages that push every mechanic to its limit. These are the hardest levels in the game and reward mastery of everything learned before.</p>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>KO Arena Challenges Reward Flower Coins</h3>
+      <p>KO Arena stages pit you against waves of enemies in a small arena. Chaining stylish eliminations — bouncing off multiple enemies in one jump — gives multiplier bonuses and the most efficient way to farm Flower Coins fast.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>100% Requires Finding Every Wonder Seed</h3>
+      <p>Full completion means collecting every Wonder Seed including the secret exit seeds, clearing all KO Arenas, and finishing the Special World. The game tracks your completion percentage per world — use it to identify what you're missing.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="tip-card wonder-card">
+      <span class="tip-tag tag-expert">Expert</span>
+      <h3>Online Play Rewards Rare Standees</h3>
+      <p>Playing stages in Online Mode alongside other players' ghost data occasionally rewards you with their Standee design. Rare character Standees from other players are collectibles that can't be obtained any other way.</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Made with ❤️ for Nintendo fans · <span>Tips for SSBU, SMW, ACNH, MK8D, MK World, Zelda, Kirby TFL, Mario Odyssey & Wonder</span>
+</footer>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// Auto-inject YouTube tutorial links into every tip card
+(function() {
+  const gameNames = {
+    smash:  'Super Smash Bros Ultimate',
+    mario:  'Super Mario World SNES',
+    ac:     'Animal Crossing New Horizons',
+    kart:   'Mario Kart 8 Deluxe',
+    kartw:  'Mario Kart World',
+    zelda:  'Zelda Tears of the Kingdom',
+    kirby:  'Kirby and the Forgotten Land',
+    odyssey: 'Super Mario Odyssey',
+    wonder:  'Super Mario Bros Wonder'
+  };
+  document.querySelectorAll('.section').forEach(section => {
+    const game = gameNames[section.id] || 'Nintendo';
+    section.querySelectorAll('.tip-card').forEach(card => {
+      const title = card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : '';
+      const query = encodeURIComponent(title + ' ' + game + ' tutorial');
+      const link = document.createElement('a');
+      link.className = 'tutorial-link';
+      link.href = 'https://www.youtube.com/results?search_query=' + query;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = '▶ Watch Tutorial';
+      // Insert after stars div if present, else append
+      const stars = card.querySelector('.stars');
+      if (stars) {
+        stars.insertAdjacentElement('afterend', link);
+      } else {
+        card.appendChild(link);
+      }
+    });
+  });
+})();
+
+function setConsole(c, btn) {
+  document.querySelectorAll('.console-btn').forEach(b => {
+    b.classList.remove('con-active','con-inactive');
+    b.classList.add('con-inactive');
+  });
+  btn.classList.remove('con-inactive');
+  btn.classList.add('con-active');
+
+  const banner = document.getElementById('console-banner');
+  if (c === 'ns') {
+    banner.style.background = '#e4001c';
+    banner.textContent = '🔴 Viewing tips for: Nintendo Switch';
+  } else {
+    banner.style.background = '#0057a8';
+    banner.textContent = '🔵 Viewing tips for: Nintendo Switch 2';
+  }
+
+  // Update all Buy Now buttons to point to the selected console
+  document.querySelectorAll('.buy-now-btn').forEach(b => {
+    b.href = c === 'ns' ? b.dataset.ns : b.dataset.ns2;
+  });
+}
+
+function toggleDark() {
+  const isDark = document.body.classList.toggle('dark-mode');
+  const btn = document.getElementById('dm-toggle');
+  btn.textContent = isDark ? '☀️ LIGHT' : '🌙 DARK';
+  localStorage.setItem('dm', isDark ? '1' : '0');
+}
+
+// Restore preference
+if (localStorage.getItem('dm') === '1') {
+  document.body.classList.add('dark-mode');
+  document.getElementById('dm-toggle').textContent = '☀️ LIGHT';
+}
+
+// ── Self-contained in-page translation ──────────────────────────
+// Translates key UI labels + all tip card h3/p text via a phrase dictionary.
+// Falls back gracefully to English for anything not in the dictionary.
+
+const uiPhrases = {
+  en: {
+    tipsTitle: 'Tips & Tricks',
+    buyNow: '🛒 BUY NOW',
+    watchTutorial: '▶ Watch Tutorial',
+    viewingNS: '🔴 Viewing tips for: Nintendo Switch',
+    viewingNS2: '🔵 Viewing tips for: Nintendo Switch 2',
+    langLabel: '🌐 LANGUAGE:',
+    consoleLabel: 'Console:',
+    basic: 'Basic', advanced: 'Advanced', expert: 'Expert',
+    secret: 'Secret', tip: 'Tip', bells: 'Bells', design: 'Design',
+    rare: 'Rare', combat: 'Combat', explore: 'Explore',
+    movement: 'Movement', moons: 'Moons', mouthful: 'Mouthful',
+    topPick: 'Top Pick', postGame: 'Post-Game', totk: 'TotK',
+    racing: 'Racing Basics'
+  },
+  fr: {
+    tipsTitle: 'Conseils et Astuces',
+    buyNow: '🛒 ACHETER',
+    watchTutorial: '▶ Voir Tutoriel',
+    viewingNS: '🔴 Conseils pour : Nintendo Switch',
+    viewingNS2: '🔵 Conseils pour : Nintendo Switch 2',
+    langLabel: '🌐 LANGUE :',
+    consoleLabel: 'Console :',
+    basic: 'Basique', advanced: 'Avancé', expert: 'Expert',
+    secret: 'Secret', tip: 'Conseil', bells: 'Cloches', design: 'Design',
+    rare: 'Rare', combat: 'Combat', explore: 'Explorer',
+    movement: 'Mouvement', moons: 'Lunes', mouthful: 'Bouche',
+    topPick: 'Meilleur Choix', postGame: 'Post-Jeu', totk: 'TotK',
+    racing: 'Bases de Course'
+  },
+  de: {
+    tipsTitle: 'Tipps & Tricks',
+    buyNow: '🛒 KAUFEN',
+    watchTutorial: '▶ Tutorial ansehen',
+    viewingNS: '🔴 Tipps für: Nintendo Switch',
+    viewingNS2: '🔵 Tipps für: Nintendo Switch 2',
+    langLabel: '🌐 SPRACHE:',
+    consoleLabel: 'Konsole:',
+    basic: 'Grundlegend', advanced: 'Fortgeschritten', expert: 'Experte',
+    secret: 'Geheimnis', tip: 'Tipp', bells: 'Glocken', design: 'Design',
+    rare: 'Selten', combat: 'Kampf', explore: 'Erkunden',
+    movement: 'Bewegung', moons: 'Monde', mouthful: 'Mundvoll',
+    topPick: 'Top Wahl', postGame: 'Nach dem Spiel', totk: 'TotK',
+    racing: 'Renngrundlagen'
+  },
+  es: {
+    tipsTitle: 'Consejos y Trucos',
+    buyNow: '🛒 COMPRAR',
+    watchTutorial: '▶ Ver Tutorial',
+    viewingNS: '🔴 Consejos para: Nintendo Switch',
+    viewingNS2: '🔵 Consejos para: Nintendo Switch 2',
+    langLabel: '🌐 IDIOMA:',
+    consoleLabel: 'Consola:',
+    basic: 'Básico', advanced: 'Avanzado', expert: 'Experto',
+    secret: 'Secreto', tip: 'Consejo', bells: 'Campanas', design: 'Diseño',
+    rare: 'Raro', combat: 'Combate', explore: 'Explorar',
+    movement: 'Movimiento', moons: 'Lunas', mouthful: 'Bocado',
+    topPick: 'Mejor Elección', postGame: 'Post-Juego', totk: 'TotK',
+    racing: 'Fundamentos de Carrera'
+  },
+  it: {
+    tipsTitle: 'Consigli e Trucchi',
+    buyNow: '🛒 ACQUISTA',
+    watchTutorial: '▶ Guarda Tutorial',
+    viewingNS: '🔴 Consigli per: Nintendo Switch',
+    viewingNS2: '🔵 Consigli per: Nintendo Switch 2',
+    langLabel: '🌐 LINGUA:',
+    consoleLabel: 'Console:',
+    basic: 'Base', advanced: 'Avanzato', expert: 'Esperto',
+    secret: 'Segreto', tip: 'Consiglio', bells: 'Campane', design: 'Design',
+    rare: 'Raro', combat: 'Combattimento', explore: 'Esplora',
+    movement: 'Movimento', moons: 'Lune', mouthful: 'Boccone',
+    topPick: 'Scelta Migliore', postGame: 'Post-Gioco', totk: 'TotK',
+    racing: 'Basi di Gara'
+  },
+  pt: {
+    tipsTitle: 'Dicas e Truques',
+    buyNow: '🛒 COMPRAR',
+    watchTutorial: '▶ Ver Tutorial',
+    viewingNS: '🔴 Dicas para: Nintendo Switch',
+    viewingNS2: '🔵 Dicas para: Nintendo Switch 2',
+    langLabel: '🌐 IDIOMA:',
+    consoleLabel: 'Console:',
+    basic: 'Básico', advanced: 'Avançado', expert: 'Especialista',
+    secret: 'Segredo', tip: 'Dica', bells: 'Sinos', design: 'Design',
+    rare: 'Raro', combat: 'Combate', explore: 'Explorar',
+    movement: 'Movimento', moons: 'Luas', mouthful: 'Bocado',
+    topPick: 'Melhor Escolha', postGame: 'Pós-Jogo', totk: 'TotK',
+    racing: 'Fundamentos de Corrida'
+  },
+  ja: {
+    tipsTitle: 'ヒントとコツ',
+    buyNow: '🛒  購入する',
+    watchTutorial: '▶ チュートリアルを見る',
+    viewingNS: '🔴 Nintendo Switch のヒント',
+    viewingNS2: '🔵 Nintendo Switch 2 のヒント',
+    langLabel: '🌐 言語:',
+    consoleLabel: 'コンソール:',
+    basic: '基本', advanced: '上級', expert: 'エキスパート',
+    secret: '秘密', tip: 'ヒント', bells: 'ベル', design: 'デザイン',
+    rare: 'レア', combat: '戦闘', explore: '探索',
+    movement: '動き', moons: '月', mouthful: '口いっぱい',
+    topPick: '最高の選択', postGame: 'ゲーム後', totk: 'TotK',
+    racing: 'レースの基本'
+  },
+  ko: {
+    tipsTitle: '팁 & 트릭',
+    buyNow: '🛒 구매하기',
+    watchTutorial: '▶ 튜토리얼 보기',
+    viewingNS: '🔴 Nintendo Switch 팁',
+    viewingNS2: '🔵 Nintendo Switch 2 팁',
+    langLabel: '🌐 언어:',
+    consoleLabel: '콘솔:',
+    basic: '기본', advanced: '고급', expert: '전문가',
+    secret: '비밀', tip: '팁', bells: '종', design: '디자인',
+    rare: '희귀', combat: '전투', explore: '탐험',
+    movement: '이동', moons: '달', mouthful: '한 입',
+    topPick: '최고의 선택', postGame: '게임 후', totk: 'TotK',
+    racing: '레이싱 기초'
+  },
+  zh: {
+    tipsTitle: '技巧与窍门',
+    buyNow: '🛒 立即购买',
+    watchTutorial: '▶ 观看教程',
+    viewingNS: '🔴 Nintendo Switch 技巧',
+    viewingNS2: '🔵 Nintendo Switch 2 技巧',
+    langLabel: '🌐 语言：',
+    consoleLabel: '主机：',
+    basic: '基础', advanced: '进阶', expert: '专家',
+    secret: '秘密', tip: '技巧', bells: '铃铛', design: '设计',
+    rare: '稀有', combat: '战斗', explore: '探索',
+    movement: '移动', moons: '月亮', mouthful: '满口',
+    topPick: '最佳选择', postGame: '游戏后', totk: 'TotK',
+    racing: '赛车基础'
+  },
+  ru: {
+    tipsTitle: 'Советы и Хитрости',
+    buyNow: '🛒 КУПИТЬ',
+    watchTutorial: '▶ Смотреть урок',
+    viewingNS: '🔴 Советы для: Nintendo Switch',
+    viewingNS2: '🔵 Советы для: Nintendo Switch 2',
+    langLabel: '🌐 ЯЗЫК:',
+    consoleLabel: 'Консоль:',
+    basic: 'Базовый', advanced: 'Продвинутый', expert: 'Эксперт',
+    secret: 'Секрет', tip: 'Совет', bells: 'Монеты', design: 'Дизайн',
+    rare: 'Редкий', combat: 'Бой', explore: 'Исследовать',
+    movement: 'Движение', moons: 'Луны', mouthful: 'Полный рот',
+    topPick: 'Лучший выбор', postGame: 'После игры', totk: 'TotK',
+    racing: 'Основы гонок'
+  },
+  ar: {
+    tipsTitle: 'نصائح وحيل',
+    buyNow: '🛒 اشتر الآن',
+    watchTutorial: '▶ شاهد الدرس',
+    viewingNS: '🔴 نصائح لـ: Nintendo Switch',
+    viewingNS2: '🔵 نصائح لـ: Nintendo Switch 2',
+    langLabel: '🌐 اللغة:',
+    consoleLabel: 'وحدة التحكم:',
+    basic: 'أساسي', advanced: 'متقدم', expert: 'خبير',
+    secret: 'سر', tip: 'نصيحة', bells: 'أجراس', design: 'تصميم',
+    rare: 'نادر', combat: 'قتال', explore: 'استكشاف',
+    movement: 'حركة', moons: 'أقمار', mouthful: 'ملء الفم',
+    topPick: 'أفضل اختيار', postGame: 'ما بعد اللعبة', totk: 'TotK',
+    racing: 'أساسيات السباق'
+  },
+  nl: {
+    tipsTitle: 'Tips & Trucs',
+    buyNow: '🛒 KOOP NU',
+    watchTutorial: '▶ Bekijk Tutorial',
+    viewingNS: '🔴 Tips voor: Nintendo Switch',
+    viewingNS2: '🔵 Tips voor: Nintendo Switch 2',
+    langLabel: '🌐 TAAL:',
+    consoleLabel: 'Console:',
+    basic: 'Basis', advanced: 'Gevorderd', expert: 'Expert',
+    secret: 'Geheim', tip: 'Tip', bells: 'Klokken', design: 'Ontwerp',
+    rare: 'Zeldzaam', combat: 'Gevecht', explore: 'Verkennen',
+    movement: 'Beweging', moons: 'Manen', mouthful: 'Mondvol',
+    topPick: 'Beste Keuze', postGame: 'Na het Spel', totk: 'TotK',
+    racing: 'Race Basics'
+  },
+  pl: {
+    tipsTitle: 'Porady i Triki',
+    buyNow: '🛒 KUP TERAZ',
+    watchTutorial: '▶ Obejrzyj Tutorial',
+    viewingNS: '🔴 Porady dla: Nintendo Switch',
+    viewingNS2: '🔵 Porady dla: Nintendo Switch 2',
+    langLabel: '🌐 JĘZYK:',
+    consoleLabel: 'Konsola:',
+    basic: 'Podstawowy', advanced: 'Zaawansowany', expert: 'Ekspert',
+    secret: 'Sekret', tip: 'Porada', bells: 'Dzwonki', design: 'Projekt',
+    rare: 'Rzadki', combat: 'Walka', explore: 'Eksploracja',
+    movement: 'Ruch', moons: 'Księżyce', mouthful: 'Pełne usta',
+    topPick: 'Najlepszy Wybór', postGame: 'Po Grze', totk: 'TotK',
+    racing: 'Podstawy Wyścigów'
+  },
+  tr: {
+    tipsTitle: 'İpuçları ve Hileler',
+    buyNow: '🛒 ŞİMDİ AL',
+    watchTutorial: '▶ Eğitimi İzle',
+    viewingNS: '🔴 Nintendo Switch için ipuçları',
+    viewingNS2: '🔵 Nintendo Switch 2 için ipuçları',
+    langLabel: '🌐 DİL:',
+    consoleLabel: 'Konsol:',
+    basic: 'Temel', advanced: 'Gelişmiş', expert: 'Uzman',
+    secret: 'Sır', tip: 'İpucu', bells: 'Ziller', design: 'Tasarım',
+    rare: 'Nadir', combat: 'Savaş', explore: 'Keşfet',
+    movement: 'Hareket', moons: 'Aylar', mouthful: 'Ağız Dolusu',
+    topPick: 'En İyi Seçim', postGame: 'Oyun Sonrası', totk: 'TotK',
+    racing: 'Yarış Temelleri'
+  }
+};
+
+// For languages without a full dictionary, show a banner
+const langNames = {
+  en:'English',fr:'Français',de:'Deutsch',es:'Español',it:'Italiano',
+  pt:'Português',ja:'日本語',ko:'한국어',zh:'中文',ru:'Русский',
+  ar:'العربية',nl:'Nederlands',pl:'Polski',tr:'Türkçe',
+  'zh-tw':'繁體中文',hr:'Hrvatski',cs:'Čeština',da:'Dansk',fi:'Suomi',
+  el:'Ελληνικά',he:'עברית',hi:'हिन्दी',hu:'Magyar',id:'Bahasa Indonesia',
+  ms:'Bahasa Melayu',no:'Norsk',ro:'Română',sk:'Slovenčina',sv:'Svenska',
+  th:'ภาษาไทย',uk:'Українська',vi:'Tiếng Việt'
+};
+
+let currentLang = 'en';
+
+// Map data-key attributes to phrase keys
+const tagMap = {
+  'Basic':'basic','Advanced':'advanced','Expert':'expert',
+  'Secret':'secret','Tip':'tip','Bells':'bells','Design':'design',
+  'Rare':'rare','Combat':'combat','Explore':'explore',
+  'Movement':'movement','Moons':'moons','Mouthful':'mouthful',
+  'Top Pick':'topPick','Post-Game':'postGame','TotK':'totk',
+  'Racing Basics':'racing'
+};
+
+function applyLang(lang) {
+  const t = uiPhrases[lang] || null;
+
+  // Language bar label
+  document.querySelector('.lang-bar label').textContent = t ? t.langLabel : '🌐 LANGUAGE:';
+
+  // Console bar label
+  const consoleSpan = document.querySelector('.console-bar span');
+  if (consoleSpan && t) consoleSpan.textContent = t.consoleLabel;
+
+  // Console banner
+  const banner = document.getElementById('console-banner');
+  if (banner && t) {
+    const isNS2 = banner.style.background === 'rgb(0, 87, 168)';
+    banner.textContent = isNS2 ? t.viewingNS2 : t.viewingNS;
+  }
+
+  // Buy Now buttons
+  document.querySelectorAll('.buy-now-btn').forEach(b => {
+    if (t) b.textContent = t.buyNow;
+    else b.textContent = '🛒 BUY NOW';
+  });
+
+  // Tutorial links
+  document.querySelectorAll('.tutorial-link').forEach(a => {
+    if (t) a.textContent = t.watchTutorial;
+    else a.textContent = '▶ Watch Tutorial';
+  });
+
+  // Tip tags — translate text inside .tip-tag spans
+  document.querySelectorAll('.tip-tag').forEach(span => {
+    const key = tagMap[span.dataset.origText || span.textContent.trim()];
+    if (!span.dataset.origText) span.dataset.origText = span.textContent.trim();
+    if (t && key && t[key]) span.textContent = t[key];
+    else if (span.dataset.origText) span.textContent = span.dataset.origText;
+  });
+
+  // Section header h2 — translate "Tips & Tricks" part
+  document.querySelectorAll('.section-header h2').forEach(h2 => {
+    if (!h2.dataset.orig) h2.dataset.orig = h2.innerHTML;
+    const orig = h2.dataset.orig;
+    if (t) h2.innerHTML = orig.replace('Tips &amp; Tricks', t.tipsTitle).replace('Tips & Tricks', t.tipsTitle);
+    else h2.innerHTML = orig;
+  });
+
+  // Show/hide "partial translation" notice
+  let notice = document.getElementById('lang-notice');
+  if (!t && lang !== 'en') {
+    if (!notice) {
+      notice = document.createElement('div');
+      notice.id = 'lang-notice';
+      notice.style.cssText = 'background:#2a1e00;color:#ffc86b;text-align:center;padding:0.5rem 1rem;font-size:0.82rem;font-weight:700;';
+      document.getElementById('console-banner').insertAdjacentElement('afterend', notice);
+    }
+    notice.textContent = `⚠️ Full translation for ${langNames[lang] || lang} coming soon — showing English content.`;
+  } else if (notice) {
+    notice.remove();
+  }
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  applyLang(lang);
+}
+
+// Restore preference
+if (localStorage.getItem('dm') === '1') {
+  document.body.classList.add('dark-mode');
+  document.getElementById('dm-toggle').textContent = '☀️ LIGHT';
+}
+
+// Scroll hint
+(function() {
+  const hint = document.getElementById('scroll-hint');
+  function checkScroll() {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const nearBottom = (total - window.scrollY) < 80;
+    if (total > 50 && !nearBottom) {
+      hint.classList.add('visible');
+    } else {
+      hint.classList.remove('visible');
+    }
+  }
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  window.addEventListener('resize', checkScroll, { passive: true });
+  setTimeout(checkScroll, 400);
+
+  // Also re-check when switching game sections
+  const origShow = window.show;
+  window.show = function(id, btn) {
+    origShow(id, btn);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(checkScroll, 500);
+  };
+})();
+</script>
+
+</body>
+</html>
